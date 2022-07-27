@@ -1,0 +1,23 @@
+{
+  "name": "dwight-board",
+  "version": "1.0.0",
+  "description": "\"Distributed White Board - DWight Board\"",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guthi-Distribution/dwight-board.git"
+  },
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Guthi-Distribution/dwight-board/issues"
+  },
+  "homepage": "https://github.com/Guthi-Distribution/dwight-board#readme",
+  "devDependencies": {
+    "electron": "^19.0.9"
+  }
+}
