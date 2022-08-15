@@ -4,8 +4,9 @@
   "description": "Distributed White Board - DWight Board",
   "main": "src/index.ts",
   "scripts": {
-    "start": "webpack && electron dist/bundle.js",
-    "build": "webpack --mode production"
+    "start": "npm run build && electron dist/bundle.js",
+    "build": "tsc dist/scripts/*.ts && webpack --mode production",
+    "dry-run": "electron dist/bundle.js"
   },
   "repository": {
     "type": "git",
