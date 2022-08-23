@@ -1,18 +1,22 @@
-const canvas: HTMLCanvasElement = document.getElementById(
-  'canvas'
-) as HTMLCanvasElement;
+const canvas= document.getElementById('canvas') as HTMLCanvasElement;
 let ctx: CanvasRenderingContext2D = canvas.getContext('2d');
 let isDrawing: boolean = false;
 let imgData = null;
+let colorInput =  document.getElementById('color') as HTMLInputElement;
+let sizeInput = document.getElementById('size') as HTMLInputElement;
+let rangeValue = document.getElementById('rangeValue') as HTMLInputElement;
+
+sizeInput.addEventListener("input",function(){
+  rangeValue.innerHTML = sizeInput.value;
+});
 
 if (ctx) {
   canvas.addEventListener('mousedown', (e: MouseEvent) => {
     isDrawing = true;
     ctx.moveTo(e.clientX, e.clientY);
     ctx.beginPath();
-    // ctx.lineWidth = 3;
-    // ctx.lineCap = 'round';
-    // ctx.strokeStyle = 'black';
+    ctx.lineWidth = parseInt(sizeInput.value);
+    ctx.strokeStyle = colorInput.value;
   });
 
   canvas.addEventListener('mousemove', (e: MouseEvent) => {

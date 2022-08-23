@@ -1,21 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <link rel="stylesheet" href="stylesheets/style.css" />
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <div id="content">
-      <canvas id="canvas" width="500" height="500">
-        <h2>Fallback content...</h2>
-      </canvas>
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <title>Hello World!</title>
+</head>
+
+<body>
+  <div id="content">
+    <canvas id="canvas" width="500" height="500">
+      <h2>Fallback content...</h2>
+    </canvas>
+
+    <div>
+
+      <div id="color-picker">
+        <p>Color:</p>
+        <input type="color" id="color" name="color" value="#ff6600">
+      </div>
+
+      <div class="comp">
+        <p>Size:</p>
+
+        <div id="size-slider">
+          <input type="range" id="size" min="1" max="5" value="2" oninput="rangeValue.innerText = this.value">
+          <p id="rangeValue">2</p>
+        </div>
+      </div>
+
+      <div id="controls">
+        <button id="clear">Clear</button>
+        <button id="save">Save</button>
+      </div>
     </div>
-  </body>
-  <script src="scripts/canvas.js"></script>
+  </div>
+
+
+
+</body>
+
+
+<script src="scripts/canvas.js"></script>
+
 </html>
