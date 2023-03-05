@@ -2,3 +2,5 @@ node_modules/
 dist/bundle.js
 dist/scripts/*.js
 .vscode/
+*LICENSE*
+*js.map

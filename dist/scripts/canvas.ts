@@ -1,12 +1,12 @@
-const canvas= document.getElementById('canvas') as HTMLCanvasElement;
+const canvas = document.getElementById('canvas') as HTMLCanvasElement;
 let ctx: CanvasRenderingContext2D = canvas.getContext('2d');
 let isDrawing: boolean = false;
 let imgData = null;
-let colorInput =  document.getElementById('color') as HTMLInputElement;
+let colorInput = document.getElementById('color') as HTMLInputElement;
 let sizeInput = document.getElementById('size') as HTMLInputElement;
 let rangeValue = document.getElementById('rangeValue') as HTMLInputElement;
 
-sizeInput.addEventListener("input",function(){
+sizeInput.addEventListener('input', function () {
   rangeValue.innerHTML = sizeInput.value;
 });
 
