@@ -4,3 +4,4 @@ dist/scripts/*.js
 .vscode/
 *LICENSE*
 *js.map
+canvas-data.txt

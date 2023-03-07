@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const canvas = document.getElementById('canvas') as HTMLCanvasElement;
 let ctx: CanvasRenderingContext2D = canvas.getContext('2d');
 let isDrawing: boolean = false;
@@ -5,9 +7,38 @@ let imgData = null;
 let colorInput = document.getElementById('color') as HTMLInputElement;
 let sizeInput = document.getElementById('size') as HTMLInputElement;
 let rangeValue = document.getElementById('rangeValue') as HTMLInputElement;
+const saveButton = document.getElementById('save') as HTMLButtonElement;
+
+const saveFile = './canvas-data.txt';
 
 sizeInput.addEventListener('input', function () {
   rangeValue.innerHTML = sizeInput.value;
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  // console.log('window loaded');
+  try {
+    if (fs.existsSync(saveFile)) {
+      //file exists
+      const imgData = fs.readFileSync(saveFile, 'utf8');
+      const img = new Image();
+      img.src = imgData;
+      img.onload = function () {
+        ctx.drawImage(img, 0, 0);
+      };
+    }
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+saveButton.addEventListener('click', () => {
+  const imgData = canvas.toDataURL();
+  fs.writeFile(saveFile, imgData, (err) => {
+    if (err) {
+      console.error(err);
+    }
+  });
 });
 
 if (ctx) {
