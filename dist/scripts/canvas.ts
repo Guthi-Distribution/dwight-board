@@ -5,7 +5,7 @@ sizeInput.addEventListener('input', function () {
 if (ctx) {
   canvas.addEventListener('mousedown', (e: MouseEvent) => {
     isDrawing = true;
-    ctx.moveTo(e.clientX, e.clientY);
+    ctx.moveTo(e.clientX - offsetX, e.clientY - offsetY);
     ctx.beginPath();
     ctx.lineWidth = parseInt(sizeInput.value);
     ctx.strokeStyle = colorInput.value;
@@ -13,7 +13,7 @@ if (ctx) {
 
   canvas.addEventListener('mousemove', (e: MouseEvent) => {
     if (isDrawing) {
-      ctx.lineTo(e.clientX, e.clientY);
+      ctx.lineTo(e.clientX - offsetX, e.clientY - offsetY);
       ctx.stroke();
     }
   });
@@ -25,8 +25,11 @@ if (ctx) {
   document.addEventListener('keypress', (e: KeyboardEvent) => {
     if (e.key === 'l') {
       imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      console.log(imgData);
     }
+  });
+
+  clearButton.addEventListener('click', (e: MouseEvent) => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
   });
 } else {
   console.log('Canvas not supported');

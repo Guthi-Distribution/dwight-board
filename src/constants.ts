@@ -1,2 +1,2 @@
-export const SCREEN_WIDTH: number = 800;
-export const SCREEN_HEIGHT: number = 600;
+export const SCREEN_WIDTH: number = 1000;
+export const SCREEN_HEIGHT: number = 800;
