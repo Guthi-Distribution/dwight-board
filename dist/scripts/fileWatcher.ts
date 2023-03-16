@@ -34,9 +34,9 @@ function writeToFile() {
 
 const readFileWatcher = fs.watch(readFile);
 
-window.addEventListener('DOMContentLoaded', () => {
-  loadFromFile();
-});
+// window.addEventListener('DOMContentLoaded', () => {
+//   loadFromFile();
+// });
 
 readFileWatcher.on('change', () => {
   loadFromFile();

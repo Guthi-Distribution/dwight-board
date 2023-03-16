@@ -30,6 +30,9 @@ if (ctx) {
 
   clearButton.addEventListener('click', (e: MouseEvent) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    writeToFile();
   });
 } else {
   console.log('Canvas not supported');
